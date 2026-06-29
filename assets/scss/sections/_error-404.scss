@@ -1,0 +1,264 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Error 404 Section
+--------------------------------------------------------------*/
+.error-404 {
+  padding: 100px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--background-color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 92%), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-color), transparent 95%), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .error-visual {
+    text-align: center;
+    position: relative;
+
+    .error-badge {
+      display: inline-block;
+      padding: 8px 24px;
+      background: color-mix(in srgb, var(--accent-color), transparent 88%);
+      color: var(--accent-color);
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .error-code {
+      font-size: clamp(140px, 22vw, 260px);
+      font-weight: 700;
+      font-family: var(--heading-font);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color) 60%, #a855f7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .error-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: color-mix(in srgb, var(--accent-color), transparent 60%);
+
+        &:nth-child(2) {
+          background: color-mix(in srgb, var(--accent-color), transparent 40%);
+        }
+
+        &:nth-child(3) {
+          background: var(--accent-color);
+        }
+      }
+    }
+  }
+
+  .error-content {
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: color-mix(in srgb, var(--default-color), transparent 25%);
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color) 85%, #6366f1));
+      color: var(--contrast-color);
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 4px 14px color-mix(in srgb, var(--accent-color), transparent 65%);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+        color: var(--contrast-color);
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+
+    .btn-explore {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        background: color-mix(in srgb, var(--accent-color), transparent 92%);
+        transform: translateY(-2px);
+        color: var(--accent-color);
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .quick-nav-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+
+  .nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 28px 16px;
+    background: var(--surface-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--default-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--default-color), transparent 95%);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px color-mix(in srgb, var(--default-color), transparent 88%);
+      border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+      color: var(--accent-color);
+    }
+
+    i {
+      font-size: 28px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      transition: all 0.3s ease;
+    }
+
+    &:hover i {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .error-visual {
+      margin-bottom: 16px;
+
+      .error-code {
+        font-size: clamp(100px, 18vw, 180px);
+      }
+    }
+
+    .error-content {
+      text-align: center;
+
+      p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .action-buttons {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 80px 0 60px;
+
+    .action-buttons {
+      flex-direction: column;
+      align-items: center;
+
+      .btn-home,
+      .btn-explore {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,279 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Chefs Section
+--------------------------------------------------------------*/
+.chefs {
+  --card-radius: 16px;
+  --shadow-soft: 0 4px 12px color-mix(in srgb, var(--default-color), transparent 92%);
+  --shadow-hover: 0 12px 32px color-mix(in srgb, var(--default-color), transparent 88%);
+  --muted-text: color-mix(in srgb, var(--default-color), transparent 40%);
+  --accent-light: color-mix(in srgb, var(--accent-color), transparent 90%);
+  --accent-border: color-mix(in srgb, var(--accent-color), transparent 75%);
+
+  .lead-chef-spotlight {
+    background: var(--surface-color);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .spotlight-image {
+      position: relative;
+      height: 100%;
+      min-height: 380px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.04);
+      }
+
+      .accent-tag {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 24px;
+        color: var(--contrast-color);
+        background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #6366f1 20%));
+        box-shadow: 0 4px 14px color-mix(in srgb, var(--accent-color), transparent 50%);
+
+        i {
+          color: #fbbf24;
+        }
+      }
+    }
+
+    .spotlight-details {
+      padding: 40px;
+
+      .label-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        border-radius: 24px;
+        color: var(--accent-color);
+        background: var(--accent-light);
+        border: 1px solid var(--accent-border);
+        margin-bottom: 16px;
+      }
+
+      .chef-name {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin: 0 0 4px;
+      }
+
+      .chef-title {
+        color: var(--muted-text);
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 16px;
+      }
+
+      .chef-summary {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+        max-width: 50ch;
+      }
+
+      .accolades {
+        margin-bottom: 24px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--default-color);
+          border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          i {
+            font-size: 16px;
+            color: var(--accent-color);
+          }
+        }
+      }
+
+      .chef-signature img {
+        max-width: 140px;
+        opacity: 0.8;
+        filter: drop-shadow(0 2px 4px color-mix(in srgb, var(--default-color), transparent 90%));
+      }
+    }
+
+    @media (max-width: 992px) {
+      .spotlight-image {
+        min-height: 300px;
+      }
+
+      .spotlight-details {
+        padding: 32px 24px;
+
+        .chef-summary {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .crew-cards {
+    .crew-member {
+      background: var(--surface-color);
+      border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--accent-border);
+      }
+
+      .member-photo {
+        height: 100%;
+        min-height: 220px;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 85%), transparent 60%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &:hover .member-photo {
+        img {
+          transform: scale(1.06);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      .member-info {
+        padding: 24px;
+
+        .member-name {
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: -0.01em;
+          margin: 0 0 2px;
+        }
+
+        .member-role {
+          font-size: 13px;
+          color: var(--accent-color);
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        .member-desc {
+          font-size: 13px;
+          line-height: 1.6;
+          color: color-mix(in srgb, var(--default-color), transparent 25%);
+          margin-bottom: 14px;
+        }
+
+        .member-footer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          flex-wrap: wrap;
+
+          .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 24px;
+            color: var(--default-color);
+            background: var(--accent-light);
+            border: 1px solid var(--accent-border);
+
+            i {
+              color: var(--accent-color);
+            }
+          }
+
+          .social-links {
+            display: flex;
+            gap: 6px;
+
+            a {
+              width: 32px;
+              height: 32px;
+              display: grid;
+              place-items: center;
+              border-radius: 50%;
+              font-size: 13px;
+              color: var(--muted-text);
+              background: color-mix(in srgb, var(--default-color), transparent 95%);
+              transition: all 0.3s ease;
+
+              &:hover {
+                color: var(--contrast-color);
+                background: var(--accent-color);
+                transform: translateY(-2px);
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 576px) {
+        .member-photo {
+          min-height: 180px;
+        }
+
+        .member-info {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
