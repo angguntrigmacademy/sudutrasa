@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Reservasi - SudutRasa</title>
-  <meta name="description" content="Pesan meja Anda sekarang untuk pengalaman fine dining yang tak terlupakan.">
+  <title>Kontak Kami - SudutRasa</title>
+  <meta name="description" content="Hubungi SudutRasa untuk pertanyaan, masukan, atau rencana kerja sama.">
 
   <link href="assets/img/favicon.webp" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -34,10 +34,10 @@
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+62 21 5555 8888</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://twitter.com" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://facebook.com" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://instagram.com" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://linkedin.com" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
     </div>
@@ -53,10 +53,10 @@
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about.html">Tentang Kami</a></li>
             <li><a href="menu.html">Menu</a></li>
-            <li><a href="reservasi.html" class="active">Reservasi</a></li>
-            <li><a href="chef.html">Chef Kami</a></li>
+            <li><a href="reservasi.html">Reservasi</a></li>
+            <li><a href="chefs.html">Chef Kami</a></li>
             <li><a href="events.html">Acara</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="kontak.html" class="active">Kontak</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -66,106 +66,99 @@
 
   <main class="main" style="margin-top: 100px;">
 
-    <!-- Section Book A Table (Formulir Reservasi) -->
-    <section id="book-a-table" class="book-a-table section dark-background">
+    <section id="contact" class="contact section">
 
       <div class="container section-title" data-aos="fade-up">
-        <h2>Formulir Reservasi</h2>
-        <p>Amankan tempat duduk Anda malam ini untuk menikmati hidangan berkelas tanpa mengantre.</p>
+        <h2>Hubungi Kontak</h2>
+        <p>Ada pertanyaan, masukan, atau rencana kerja sama? Silakan kirimkan pesan Anda.</p>
       </div>
       
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-5 align-items-center">
+        <div class="row g-4">
 
-          <div class="col-lg-7" data-aos="fade-right" data-aos-delay="150">
-            <div class="showcase-wrapper">
-              <div class="showcase-image">
-                <img src="assets/img/hero/meja restaurant.webp" alt="Pengalaman makan malam mewah" class="img-fluid">
+          <div class="col-lg-7" data-aos="fade-right" data-aos-delay="100">
+            <div class="form-card">
+              <div class="form-header">
+                <span class="badge-label">Hubungi Layanan</span>
+                <h3>Kirimkan Pesan Anda</h3>
+                <p>Kami sangat menghargai setiap masukan Anda demi meningkatkan kualitas layanan kami ke depan.</p>
               </div>
-              <div class="floating-badge badge-top" data-aos="zoom-in" data-aos-delay="300">
-                <i class="bi bi-star-fill"></i>
-                <div>
-                  <strong>Rating 4.9</strong>
-                  <span>850+ Ulasan Puas</span>
+
+              <form onsubmit="kirimPesanWA(event)" role="form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="contact-name">Nama Lengkap</label>
+                    <input type="text" class="form-control" name="name" id="contact-name" placeholder="Contoh: Andi Wijaya" required autocomplete="name">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="contact-email">Alamat Email</label>
+                    <input type="email" class="form-control" name="email" id="contact-email" placeholder="nama@email.com" required autocomplete="email">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="contact-subject">Subjek Pesan</label>
+                    <input type="text" class="form-control" name="subject" id="contact-subject" placeholder="Apa yang bisa kami bantu?" required>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="contact-message">Isi Pesan</label>
+                    <textarea class="form-control" name="message" id="contact-message" rows="5" placeholder="Tuliskan secara detail pertanyaan atau pengajuan kerja sama Anda di sini..." required></textarea>
+                  </div>
+
+                  <div class="col-12 my-3">
+                    <div class="sent-message d-none" id="waContactSuccess" style="color: #cda45e; font-weight: bold;">Mengalihkan ke WhatsApp...</div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" class="btn-send w-100 py-3 rounded-pill" style="background: #cda45e; color: #fff; border: none; font-weight: 600;">
+                      Kirim Pesan <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="floating-badge badge-bottom" data-aos="zoom-in" data-aos-delay="400">
-                <i class="bi bi-people-fill"></i>
-                <div>
-                  <strong>12.000+</strong>
-                  <span>Pelanggan Setia</span>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
           
           <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-            <div class="booking-panel">
-              <div class="panel-header">
-                <span class="panel-label"><i class="bi bi-calendar2-check me-2"></i>Pemesanan Instan</span>
-                <h3>Dapatkan Meja Terbaik</h3>
-                <p>Silakan isi detail kunjungan Anda di bawah ini, tim concierge kami akan segera memprosesnya.</p>
-              </div>
+            <div class="sidebar-info">
 
-              <!-- Form Reservasi ke WhatsApp -->
-              <form onsubmit="kirimKeWhatsApp(event)" role="form" class="php-email-form">
-                <div class="row gy-3">
-                  <div class="col-12">
-                    <input type="text" name="name" class="form-control" placeholder="Nama Lengkap Anda" required autocomplete="name">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="email" class="form-control" name="email" placeholder="Alamat Email" required autocomplete="email">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="tel" class="form-control" name="phone" placeholder="Nomor Telepon / WA" required autocomplete="tel">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="date" name="date" class="form-control" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="time" class="form-control" name="time" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <select name="people" class="form-select" required>
-                      <option value="">Jumlah Orang</option>
-                      <option value="1">1 Orang</option>
-                      <option value="2">2 Orang (Pasangan)</option>
-                      <option value="3">3 Orang</option>
-                      <option value="4">4 Orang</option>
-                      <option value="5">5 Orang</option>
-                      <option value="6">6+ Orang (Grup)</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-6">
-                    <select name="occasion" class="form-select">
-                      <option value="">Jenis Acara</option>
-                      <option value="Pesta Ulang Tahun">Pesta Ulang Tahun</option>
-                      <option value="Hari Jadi (Anniversary)">Hari Jadi (Anniversary)</option>
-                      <option value="Makan Malam Bisnis">Makan Malam Bisnis</option>
-                      <option value="Kencan Romantis">Kencan Romantis</option>
-                      <option value="Perayaan Khusus">Perayaan Khusus</option>
-                      <option value="Lainnya">Lainnya</option>
-                    </select>
-                  </div>
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="3" placeholder="Catatan khusus atau alergi makanan tertentu (opsional)"></textarea>
-                  </div>
+              <div class="info-tile" data-aos="fade-up" data-aos-delay="150">
+                <div class="tile-icon">
+                  <i class="bi bi-pin-map"></i>
                 </div>
-
-                <div class="my-3">
-                  <div class="sent-message d-none" id="waSuccessMsg">Mengalihkan ke WhatsApp...</div>
+                <div class="tile-text">
+                  <h5>Kantor / Restoran</h5>
+                  <p>Jl. Senopati No. 45, Kebayoran Baru, Jakarta Selatan, 12190</p>
                 </div>
-
-                <button type="submit" class="btn-book w-100">
-                  Konfirmasi Reservasi Meja
-                  <i class="bi bi-arrow-right ms-2"></i>
-                </button>
-              </form>
-
-              <div class="panel-note">
-                <i class="bi bi-shield-check"></i>
-                <span>Pembatalan gratis tanpa biaya hingga 24 jam sebelum acara</span>
               </div>
+              
+              <div class="info-tile" data-aos="fade-up" data-aos-delay="250">
+                <div class="tile-icon">
+                  <i class="bi bi-envelope-at"></i>
+                </div>
+                <div class="tile-text">
+                  <h5>Hubungi via Email</h5>
+                  <p>halo@sudutrasa.com</p>
+                  <p>support@sudutrasa.com</p>
+                </div>
+              </div>
+              
+              <div class="info-tile" data-aos="fade-up" data-aos-delay="350">
+                <div class="tile-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="tile-text">
+                  <h5>Jam Operasional Kantor</h5>
+                  <p>Sen – Jum: 08.00 – 19.00</p>
+                  <p>Sabtu: 10.00 – 15.00</p>
+                </div>
+              </div>
+              
+              <div class="map-embed" data-aos="zoom-in" data-aos-delay="300">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="260" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -229,19 +222,13 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/custom.js"></script>
-  
-  <!-- Pastikan baris ini ada untuk memanggil script yang baru kita buat -->
-  <script src="assets/js/menu-modal.js"></script> 
 
 </body>
 </html>
