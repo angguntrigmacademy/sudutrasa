@@ -4894,3 +4894,112 @@ section p, section span, section li, section label, .lead-text, .form-label {
   border-color: #cda45e !important;
   box-shadow: 0 0 0 0.25rem rgba(205, 164, 94, 0.25) !important;
 }
+
+/* Styling Khusus Elemen Interaktif Halaman Acara */
+.clickable-event {
+  cursor: pointer;
+}
+
+.highlight-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Gaya Khusus Halaman Detail Acara (event-detail.html) */
+.back-link {
+  color: #cda45e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.back-link:hover {
+  color: #fff;
+}
+
+.event-badge {
+  background-color: rgba(205, 164, 94, 0.1);
+  color: #cda45e;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.event-title-main {
+  font-family: 'Marcellus', serif;
+  font-size: 3rem;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.event-meta span {
+  font-size: 15px;
+  color: #aaaaaa;
+}
+.event-meta i {
+  color: #cda45e;
+  margin-right: 5px;
+}
+
+.event-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #cccccc;
+}
+
+.event-content h3, .event-content h4 {
+  color: #fff;
+  font-family: 'Marcellus', serif;
+}
+
+.event-features-list {
+  list-style: none;
+  padding: 0;
+}
+.event-features-list li {
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.05);
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+.text-accent {
+  color: #cda45e;
+}
+
+.event-ticket-box {
+  background: #1a1814;
+  border: 1px solid #333;
+}
+
+/* Tombol Share */
+.btn-share {
+  background: transparent;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: 0.3s;
+}
+.btn-share:hover {
+  background: #cda45e;
+  border-color: #cda45e;
+}
+
+/* Efek Hover Elegan untuk Kartu Menu yang Bisa Diklik */
+.clickable-menu {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* Menghaluskan sudut saat dihover */
+}
+
+.clickable-menu:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.03); /* Memberi sedikit sorotan */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
