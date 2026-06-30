@@ -268,3 +268,212 @@ function kirimKeWhatsApp(event) {
   
   window.open(linkWA, "_blank");
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const eventTriggers = document.querySelectorAll('.clickable-event');
+
+  // Seleksi Elemen Di Dalam Pop-up Modal
+  const modalImg = document.getElementById('modalEventImg');
+  const modalTitle = document.getElementById('modalEventTitle');
+  const modalDesc = document.getElementById('modalEventDesc');
+  const modalBadge = document.getElementById('modalEventBadge');
+
+  eventTriggers.forEach(trigger => {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault(); // Mencegah reload halaman atau lompatan scroll
+
+      // Cari pembungkus data terdekat
+      const container = this.closest('.event-data-container');
+
+      // Ekstraksi data dari komponen kartu/seksi
+      const title = container.querySelector('.event-title').innerText;
+      const desc = container.querySelector('.event-desc').innerText;
+      const imgSrc = container.getAttribute('data-img');
+      const badgeElement = container.querySelector('.event-tag-label');
+      const badgeText = badgeElement ? badgeElement.innerText : 'Eksklusif';
+
+      // Distribusi nilai teks ke dalam modal pop-up
+      modalImg.src = imgSrc;
+      modalTitle.innerText = title;
+      modalDesc.innerText = desc;
+      modalBadge.innerText = badgeText;
+    });
+  });
+});
+
+// ... (kode-kode custom.js Anda yang sudah ada di atasnya) ...
+
+function kirimKeWhatsApp(event) {
+  event.preventDefault(); 
+  event.stopPropagation(); 
+
+  const form = event.target;
+  
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+  const phone = form.querySelector('input[name="phone"]').value;
+  const date = form.querySelector('input[name="date"]').value;
+  const time = form.querySelector('input[name="time"]').value;
+  const people = form.querySelector('select[name="people"]').value;
+  const occasion = form.querySelector('select[name="occasion"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  const noWA = "622155558888"; 
+
+  let textWA = `Halo SudutRasa, saya ingin melakukan reservasi meja dengan detail berikut:%0A%0A`;
+  textWA += `*Nama:* ${name}%0A`;
+  textWA += `*Email:* ${email}%0A`;
+  textWA += `*No. Telepon:* ${phone}%0A`;
+  textWA += `*Tanggal:* ${date}%0A`;
+  textWA += `*Waktu:* ${time}%0A`;
+  textWA += `*Jumlah Orang:* ${people}%0A`;
+  
+  if (occasion) {
+    textWA += `*Acara:* ${occasion}%0A`;
+  }
+  
+  if (message) {
+    textWA += `*Catatan Khusus:* ${message}%0A`;
+  }
+  
+  textWA += `%0AMohon konfirmasinya. Terima kasih!`;
+
+  const successMsg = form.querySelector('#waSuccessMsg');
+  if (successMsg) {
+    successMsg.classList.remove('d-none');
+    successMsg.classList.add('d-block');
+  }
+
+  window.open(`https://wa.me/${noWA}?text=${textWA}`, '_blank');
+}
+
+// Script untuk Form Halaman Kontak
+function kirimPesanWA(event) {
+  event.preventDefault(); 
+  event.stopPropagation();
+
+  const form = event.target;
+  
+  // Ambil nilai dari input kontak
+  const name = form.querySelector('input[name="name"]').value;
+  const email = form.querySelector('input[name="email"]').value;
+  const subject = form.querySelector('input[name="subject"]').value;
+  const message = form.querySelector('textarea[name="message"]').value;
+
+  // Ganti dengan nomor WhatsApp Anda (Format: 62...)
+  const noWA = "6281234567890"; 
+
+  // Susun pesan
+  let rawText = `Halo SudutRasa, ada pesan masuk dari form kontak:\n\n`;
+  rawText += `*Nama:* ${name}\n`;
+  rawText += `*Email:* ${email}\n`;
+  rawText += `*Subjek:* ${subject}\n\n`;
+  rawText += `*Pesan:*\n${message}`;
+
+  // Mengubah spasi dan karakter menjadi format URL yang aman
+  const safeTextWA = encodeURIComponent(rawText);
+
+  // Munculkan teks info
+  const successMsg = form.querySelector('#waContactSuccess');
+  if (successMsg) {
+    successMsg.classList.remove('d-none');
+    successMsg.style.display = 'block';
+  }
+
+  // Buka WhatsApp
+  window.open(`https://wa.me/${noWA}?text=${safeTextWA}`, '_blank');
+}
+
+// Script untuk Fitur Bagikan di Halaman Detail Acara
+
+function shareEvent(platform) {
+  // Mengambil URL halaman saat ini
+  const currentUrl = encodeURIComponent(window.location.href);
+  const eventTitle = encodeURIComponent(document.querySelector('.event-title-main').innerText);
+  
+  let shareUrl = "";
+
+  if (platform === 'whatsapp') {
+    shareUrl = `https://api.whatsapp.com/send?text=Kunjungi acara seru ini: ${eventTitle} - ${currentUrl}`;
+  } else if (platform === 'facebook') {
+    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+  }
+
+  // Buka tab baru untuk membagikan
+  if (shareUrl !== "") {
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  }
+}
+
+function copyEventLink() {
+  const dummy = document.createElement('input'),
+        text = window.location.href;
+
+  document.body.appendChild(dummy);
+  dummy.value = text;
+  dummy.select();
+  document.execCommand('copy');
+  document.body.removeChild(dummy);
+
+  alert("Tautan acara berhasil disalin ke clipboard!");
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const menuItems = document.querySelectorAll('.clickable-menu');
+
+  // Seleksi Elemen Modal
+  const modalImg = document.getElementById('modalDishImg');
+  const modalTitle = document.getElementById('modalDishTitle');
+  const modalPrice = document.getElementById('modalDishPrice');
+  const modalDesc = document.getElementById('modalDishDesc');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', function () {
+      
+      // Ambil teks & URL gambar secara dinamis (berlaku untuk menu biasa & sorotan)
+      const title = this.querySelector('h4').innerText;
+      const desc = this.querySelector('p').innerText;
+      const imgSrc = this.querySelector('img').src;
+      
+      // Ambil harga (bisa dari class .dish-price atau .spotlight-price)
+      const priceElement = this.querySelector('.dish-price') || this.querySelector('.spotlight-price');
+      const price = priceElement ? priceElement.innerText : '';
+
+      // Tampilkan data ke dalam Modal Pop-up
+      modalImg.src = imgSrc;
+      modalTitle.innerText = title;
+      modalPrice.innerText = price;
+      modalDesc.innerText = desc;
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Cari semua kartu menu yang bisa diklik
+    const menuCards = document.querySelectorAll('.clickable-menu');
+
+    // 2. Tambahkan aksi ketika kartu diklik
+    menuCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+            
+            // Ambil data dari kartu yang baru saja diklik
+            const imgSrc = this.querySelector('img').getAttribute('src');
+            const title = this.querySelector('h4').innerText;
+            const desc = this.querySelector('p').innerText;
+            
+            // Cari harga (cek apakah dari menu biasa atau menu sorotan)
+            let price = '';
+            if (this.querySelector('.dish-price')) {
+                price = this.querySelector('.dish-price').innerText;
+            } else if (this.querySelector('.spotlight-price')) {
+                price = this.querySelector('.spotlight-price').innerText;
+            }
+
+            // Tembakkan data tersebut ke dalam Pop-up Modal
+            document.getElementById('modalDishImg').setAttribute('src', imgSrc);
+            document.getElementById('modalDishTitle').innerText = title;
+            document.getElementById('modalDishPrice').innerText = price;
+            document.getElementById('modalDishDesc').innerText = desc;
+        });
+    });
+});
