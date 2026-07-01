@@ -477,3 +477,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Pastikan elemen container Isotope ada di halaman
+  let isotopeContainer = document.querySelector('.isotope-container');
+  
+  if (isotopeContainer) {
+    // Inisialisasi Isotope
+    let initIsotope = new Isotope(isotopeContainer, {
+      itemSelector: '.isotope-item',
+      layoutMode: 'masonry'
+    });
+
+    // Menangani event klik pada tab filter
+    let filterTabs = document.querySelectorAll('.isotope-filters li');
+    
+    filterTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        // Hapus class 'filter-active' dari semua tab
+        filterTabs.forEach(function (t) {
+          t.classList.remove('filter-active');
+        });
+        
+        // Tambahkan class 'filter-active' pada tab yang baru saja diklik
+        this.classList.add('filter-active');
+
+        // Ambil nilai data-filter (contoh: '.filter-starters')
+        let filterValue = this.getAttribute('data-filter');
+        
+        // Terapkan filter pada layout Isotope
+        initIsotope.arrange({
+          filter: filterValue
+        });
+        
+        // Memperbarui AOS (animasi scroll) setelah elemen diatur ulang posisinya
+        if (typeof AOS !== 'undefined') {
+          setTimeout(function() { AOS.refresh(); }, 300);
+        }
+      });
+    });
+  }
+});
