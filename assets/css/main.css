@@ -1210,6 +1210,33 @@ section,
   }
 }
 
+/* --- Perbaikan Kontras Teks Card Tiga Pilar --- */
+
+/* 1. Warna teks untuk card biasa (latar putih di kiri & kanan) */
+.pillar-card h4 {
+  color: #212529 !important; 
+}
+
+.pillar-card p, 
+.pillar-card p.text-muted {
+  color: #555555 !important; 
+}
+
+/* 2. Warna teks KHUSUS untuk card tengah (active-pillar / latar gelap) */
+.pillar-card.active-pillar h4 {
+  color: #ffffff !important; 
+}
+
+.pillar-card.active-pillar p, 
+.pillar-card.active-pillar p.text-muted {
+  color: #cccccc !important; 
+}
+
+/* 3. Menjaga warna ikon tetap oranye/emas seperti di gambar */
+.pillar-card .pillar-icon i {
+  color: #f39c12; 
+}
+
 /*--------------------------------------------------------------
 # Menu Section
 --------------------------------------------------------------*/
@@ -5002,4 +5029,65 @@ section p, section span, section li, section label, .lead-text, .form-label {
   transform: translateY(-5px);
   background-color: rgba(255, 255, 255, 0.03); /* Memberi sedikit sorotan */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling untuk Tab Filter Menu */
+.isotope-filters {
+  margin-bottom: 30px;
+}
+
+.isotope-filters ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Agar rapi di layar HP */
+  gap: 20px;
+}
+
+.isotope-filters li {
+  cursor: pointer; /* Membuat kursor menjadi tangan saat diarahkan */
+  font-weight: 500;
+  padding: 8px 15px;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent; /* Garis bawah transparan sbg default */
+}
+
+/* Warna saat di-hover atau sedang aktif */
+.isotope-filters li:hover,
+.isotope-filters li.filter-active {
+  color: #cda45e; /* Warna emas/accent web Anda */
+  border-bottom: 2px solid #cda45e;
+}
+
+/*--------------------------------------------------------------
+# WhatsApp Floating Button
+--------------------------------------------------------------*/
+.whatsapp-float {
+  position: fixed;
+  right: 15px;
+  /* Posisi di atas tombol scroll-top (bottom 15px + tinggi 44px + jarak 15px = 74px) */
+  bottom: 74px; 
+  z-index: 99999;
+  background-color: #25d366; /* Warna hijau khas WhatsApp */
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Memberikan efek bayangan */
+  text-decoration: none;
+}
+
+.whatsapp-float i {
+  font-size: 24px; /* Ukuran ikon sama dengan ikon arrow scroll-top */
+  color: #ffffff;
+  line-height: 0;
+}
+
+.whatsapp-float:hover {
+  background-color: #20b858; /* Warna hijau sedikit lebih gelap saat kursor diarahkan */
+  color: #ffffff;
+  transform: translateY(-3px); /* Efek terangkat sedikit saat di-hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
