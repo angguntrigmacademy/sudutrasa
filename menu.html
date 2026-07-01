@@ -80,7 +80,7 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <div class="filter-tabs isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <ul>
+            <ul class="justify-content-center d-flex gap-2 list-unstyled" style="cursor: pointer;">
               <li data-filter="*" class="filter-active">Semua Menu</li>
               <li data-filter=".filter-starters">Hidangan Pembuka</li>
               <li data-filter=".filter-main">Hidangan Utama</li>
@@ -273,7 +273,7 @@
                     <h4>Lemonade Mangga Selasih</h4>
                     <span class="dish-price">Rp 48.000</span>
                   </div>
-                  <p>Minuman penyegar perasan lemon asli dikombinasikan dengan puree mangga manis dan daun basil.</p>
+                  <p>Minuman penyegar perasan lemon dikombinasikan dengan pure mangga manis dan daun basil.</p>
                   <div class="dish-meta">
                     <div class="heat-indicator">
                       <i class="bi bi-fire"></i>
@@ -287,18 +287,12 @@
         </div>
 
         <div class="info-strip" data-aos="fade-up" data-aos-delay="300">
-          <div class="row align-items-center">
-            <div class="col-lg-8">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-12 text-center">
               <div class="notice-inline">
-                <i class="bi bi-calendar2-check"></i>
+                <i class="bi bi-calendar2-check me-2"></i>
                 <span>Menu kami berubah secara berkala mengikuti musim demi menjaga kesegaran bahan baku.</span>
               </div>
-            </div>
-            <div class="col-lg-4 text-lg-end">
-              <a href="#" class="download-link">
-                <i class="bi bi-file-earmark-pdf"></i>
-                <span>Unduh Menu Lengkap</span>
-              </a>
             </div>
           </div>
         </div>
@@ -448,12 +442,20 @@
     </div>
   </footer>
 
+  <a href="https://wa.me/6281234567890" target="_blank" class="whatsapp-float d-flex align-items-center justify-content-center" aria-label="Chat via WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  
+  <!-- Tambahkan baris imagesloaded ini agar filter menu bisa bekerja -->
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -461,7 +463,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/custom.js"></script>
-  <script src="assets/js/menu-modal.js"></script> <!-- Script Pop-up Menu -->
+  <script src="assets/js/menu-modal.js"></script>
 
   <!-- Script Pengisi Data Pop-up Langsung Bawaan HTML -->
   <script>
